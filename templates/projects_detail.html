@@ -1,0 +1,9 @@
+{%  extends "base.html" %}
+{% block content %}
+<h1>Details for Project ID: {{ project.id }}</h1>
+    <p>Title: {{ project.title }}</p>
+    <p>Description: {{ project.description }}</p>
+    <p>Tech: {{ project.tech }}</p>
+    <p>Github Link: {{ project.github_link }}</p>
+    <p>Image: {{ project.image_url }}</p>
+{% endblock %}
