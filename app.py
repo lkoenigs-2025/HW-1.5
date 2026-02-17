@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, abort
 
 app = Flask(__name__)
 
@@ -45,8 +45,8 @@ def project_detail(project_id):
     for project in projects_data:
         if project['id'] == project_id:
             selected_project = project
-            return render_template('projects_detail.html', project = selected_project)
-
-
+        if not selected_project:
+            abort(404)
+    return render_template('projects_detail.html', project = selected_project)
 if __name__ == '__main__':
     app.run()
