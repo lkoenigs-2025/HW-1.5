@@ -1,0 +1,27 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'style.css') }}">
+    <title>{%  block title %}Flask{% endblock %}</title>
+</head>
+
+<body>
+    {%  block nav %}
+    <nav>
+
+        <a href="{{ url_for('index') }}">Home</a>
+        <a href ="{{ url_for('about') }}">About</a>
+        <a href ="{{ url_for('projects') }}">Projects</a>
+
+    </nav>
+    {% endblock %}
+    {%  block content %}
+    {% endblock %}
+
+</body>
+
+<footer>
+    {% block footer %} Copyright 2026 {% endblock %}
+</footer>
+
+</html>
