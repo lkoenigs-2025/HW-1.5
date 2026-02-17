@@ -1,0 +1,21 @@
+{%  extends "base.html" %}
+{% block content %}
+<table>
+    <tr>
+        <th>Id</th>
+        <th>Title</th>
+        <th>Description</th>
+    </tr>
+    {% for project in projects %}
+    <tr>
+        <td><a href="{{ url_for('project', project_id = project.id) }}">{{ project.id }}: View Details</a></td>
+        <td>{{ project.description }}</td>
+        <td>{{ project.title }}</td>
+        <td>{{ project.tech }}</td>
+        <td>{{ project.github_link }}</td>
+        <td>{{ project.image_url }}</td>
+    </tr>
+
+    {%  endfor %}
+</table>
+{% endblock %}

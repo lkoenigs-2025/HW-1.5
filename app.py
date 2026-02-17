@@ -37,7 +37,7 @@ def about():  # put application's code here
     return render_template('about.html')
 
 @app.route('/projects')
-def projects():   # put application's code here
+def projects(projects_data):   # put application's code here
     return render_template('projects.html', projects = projects_data)
 
 @app.route('/project/<int:project_id>')
