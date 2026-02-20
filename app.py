@@ -1,6 +1,9 @@
-from flask import Flask, render_template, abort
+from flask_bootstrap import Bootstrap5
+from flask import Flask, render_template, abort, request
+
 
 app = Flask(__name__)
+bootstrap = Bootstrap5(app)
 
 projects_data = [
     {"id": 1,
