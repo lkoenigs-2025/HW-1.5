@@ -1,21 +1,15 @@
 {%  extends "base.html" %}
+{%  from 'macros.html' import render_project_card %}
 {% block content %}
-<table>
-    <tr>
-        <th>Id</th>
-        <th>Title</th>
-        <th>Description</th>
-    </tr>
-    {% for project in projects %}
-    <tr>
-        <td><a href="{{ url_for('project_detail', project_id = project.id) }}">{{ project.id }}</a></td>
-        <td>{{ project.description }}</td>
-        <td>{{ project.title }}</td>
-        <td>{{ project.tech }}</td>
-        <td>{{ project.github_link }}</td>
-        <td>{{ project.image_url }}</td>
-    </tr>
+    <div class="container mt-4">
+      <div class="row">
 
-    {%  endfor %}
-</table>
+        {% for project in projects %}
+        <div class="col-md-4 mb-4">
+            {{ render_project_card(project) }}
+        </div>
+        {% endfor %}
+      </div>
+   </div>
+
 {% endblock %}
