@@ -1,8 +1,11 @@
 from flask_bootstrap import Bootstrap5
 from flask import Flask, render_template, abort, request
-
+from flask_wtf import FlaskForm
+from wtforms import StringField, TextAreaField, SubmitField
+from wtforms.validators import DataRequired, Email
 
 app = Flask(__name__)
+app.config['SECRET_KEY'] = 'asdfghjkl'
 bootstrap = Bootstrap5(app)
 
 projects_data = [
@@ -31,9 +34,20 @@ projects_data = [
      "github_link": "https://github.com/lkoenigs-2025/HW-1.5",
      "image_url": "https://picsum.photos/200/300/?blur"}
 ]
+
+class ContactForm(FlaskForm):
+    name = StringField('Your Name', validators = [DataRequired()])
+    email = StringField('Email Address', validators = [DataRequired(), Email()])
+    message = TextAreaField('Message', validators = [DataRequired()])
+    submit = SubmitField('Send Message')
 @app.route('/')
 def index():  # put application's code here
     return render_template('home.html')
+
+@app.route('/contact')
+def contact():
+    form = ContactForm()# put application's code here
+    return render_template('contact.html', form=form)
 
 @app.route('/about')
 def about():  # put application's code here
