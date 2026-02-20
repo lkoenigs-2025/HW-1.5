@@ -1,5 +1,5 @@
 from flask_bootstrap import Bootstrap5
-from flask import Flask, render_template, abort, request
+from flask import Flask, render_template, abort, redirect, url_for
 from flask_wtf import FlaskForm
 from wtforms import StringField, TextAreaField, SubmitField
 from wtforms.validators import DataRequired, Email
@@ -44,11 +44,19 @@ class ContactForm(FlaskForm):
 def index():  # put application's code here
     return render_template('home.html')
 
-@app.route('/contact')
+@app.route('/contact', methods=['GET', 'POST'])
 def contact():
     form = ContactForm()# put application's code here
+    if form.validate_on_submit():
+        user_name = form.name.data
+        user_email = form.email.data
+        user_message = form.message.data
+        return redirect(url_for('contact_submission', user_name = user_name, user_email = user_email, user_message = user_message))
     return render_template('contact.html', form=form)
 
+@app.route('/contact_submission/<user_name>/<user_email>/<user_message>')
+def contact_submission(user_name, user_email, user_message):
+    return render_template('contact.html', user_name=user_name, user_email=user_email, user_message=user_message)
 @app.route('/about')
 def about():  # put application's code here
     return render_template('about.html')
