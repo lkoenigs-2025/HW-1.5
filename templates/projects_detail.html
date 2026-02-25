@@ -6,4 +6,7 @@
     <p>Tech: {{ project.tech }}</p>
     <p>Github Link: {{ project.github_link }}</p>
     <p>Image: {{ project.image_url }}</p>
+    {% for tags in project.tags %}
+      <p>{{ tags }}</p>
+    {% endfor %}
 {% endblock %}
