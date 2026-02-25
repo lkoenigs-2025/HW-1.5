@@ -14,25 +14,29 @@ projects_data = [
      "description": "Built with Flask",
      "tech": "Python, HTML, CSS, Jinja2",
      "github_link": "https://github.com/lkoenigs-2025/HW-1.5",
-     "image_url": "https://picsum.photos/seed/picsum/200/300"},
+     "image_url": "https://picsum.photos/seed/picsum/200",
+     "tags": ["Python", "Flask", "Bootstrap"]},
     {"id": 2,
      "title": "Weather App",
      "description": "API Integration",
      "tech": "JavaScript, React, OpenWeatherMap API",
      "github_link": "https://github.com/lkoenigs-2025/HW-1.5",
-     "image_url": "https://picsum.photos/200"},
+     "image_url": "https://picsum.photos/200",
+     "tags": ["Python", "Flask", "Bootstrap"]},
     {"id": 3,
      "title": "To-Do List",
      "description": "Task Management",
      "tech": "JavaScript, Python, CSS, API",
      "github_link": "https://github.com/lkoenigs-2025/HW-1.5",
-     "image_url": "https://picsum.photos/200"},
+     "image_url": "https://picsum.photos/200",
+     "tags": ["Python", "Flask", "Bootstrap"]},
     {"id": 4,
      "title": "Simple Calculator",
      "description": "Math and Logic",
      "tech": "Java, React, JavaScript CSS",
      "github_link": "https://github.com/lkoenigs-2025/HW-1.5",
-     "image_url": "https://picsum.photos/200/300/?blur"}
+     "image_url": "https://picsum.photos/200",
+     "tags": ["Python", "Flask", "Bootstrap"]}
 ]
 
 class ContactForm(FlaskForm):
